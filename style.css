@@ -8,14 +8,31 @@
     margin: 0 auto;
     border-radius: 20px;
     margin-top: 200px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .screen {
     background-color: rgb(235, 235, 235);
     width: 280px;
-    height: 150px;
+    height: 130px;
     margin: 10px 10px 0px 10px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 10px;
+}
+
+.entryValue {
+    font-size: 40px;
+    padding-right: 10px;
+}
+
+.savedValue {
+    font-size: 40px;
+    padding-right: 10px;
+    padding-top: 10px;
 }
 
 .buttons {
@@ -38,7 +55,7 @@ button {
     font-weight: 400;
 }
 
-.equal, .add, .substract, .multiply, .divide {
+.operator {
     background-color: rgb(86, 86, 255);
     color: white;
 }
