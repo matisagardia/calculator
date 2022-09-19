@@ -87,9 +87,10 @@ function clearScreen() {
 //Dot
 
 dot.addEventListener('click', (e) => {
+    if(currentNum.includes('.') == false){
     currentNum = currentNum + '.';
     entryValue.textContent = currentNum;
-})
+}});
 
 //Operate
 

@@ -66,6 +66,10 @@ button {
     font-weight: 400;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .operator {
     background-color: rgb(86, 86, 255);
     color: white;
