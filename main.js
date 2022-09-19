@@ -3,6 +3,8 @@
 let currentNum = "";
 let previousNum = "";
 let operator = "";
+let result = 0;
+let newResult = 0;
 
 
 const entryValue = document.querySelector(".entryValue");
@@ -52,6 +54,9 @@ function pushOperator(operat) {
         previousNum = currentNum;
         currentNum = '';
         entryValue.textContent = currentNum;
+    } else if(currentNum.length == 0 && previousNum > 0) {
+        opValue = operat;
+        entryValue.textContent = opValue;
     }
 }
 
@@ -79,6 +84,13 @@ function clearScreen() {
     savedValue.textContent = previousNum;
 }
 
+//Dot
+
+dot.addEventListener('click', (e) => {
+    currentNum = currentNum + '.';
+    entryValue.textContent = currentNum;
+})
+
 //Operate
 
 equal.addEventListener('click', (e) => {
@@ -86,33 +98,81 @@ equal.addEventListener('click', (e) => {
 })
 
 function operate() {
-    console.log(opValue);
     currentNum = Number(currentNum);
     previousNum = Number(previousNum);
-    if(opValue == 'x') {
-        previousNum = previousNum * currentNum;
-        savedValue.textContent = previousNum;
-        currentNum = '';
-        entryValue.textContent = currentNum;
-    } else if (opValue == '+') {
-        previousNum = previousNum + currentNum;
-        savedValue.textContent = previousNum;
-        currentNum = '';
-        entryValue.textContent = currentNum;
-    } else if (opValue == '-') {
-        previousNum = previousNum - currentNum;
-        savedValue.textContent = previousNum;
-        currentNum = '';
-        entryValue.textContent = currentNum;
-    } else if (opValue == '/') {
-        previousNum = previousNum / currentNum;
-        savedValue.textContent = previousNum;
-        currentNum = '';
-        entryValue.textContent = currentNum;
-    }else if (opValue == '%') {
-        previousNum = previousNum % currentNum;
-        savedValue.textContent = previousNum;
-        currentNum = '';
-        entryValue.textContent = currentNum;
+    if(result == 0) { 
+        if(opValue == 'x') {
+            result = previousNum * currentNum;
+            savedValue.textContent = previousNum + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            currentNum = '';
+            entryValue.textContent = currentNum;
+            opValue = '';
+        } else if (opValue == '+') {
+            result = previousNum + currentNum;
+            savedValue.textContent = previousNum + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            currentNum = '';
+            entryValue.textContent = currentNum;
+            opValue = '';
+        } else if (opValue == '-') {
+            result = previousNum - currentNum;
+            savedValue.textContent = previousNum + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            currentNum = '';
+            entryValue.textContent = currentNum;
+            opValue = '';
+        } else if (opValue == '/') {
+            result = previousNum / currentNum;
+            savedValue.textContent = previousNum + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            currentNum = '';
+            entryValue.textContent = currentNum;
+            opValue = '';
+        }else if (opValue == '%') {
+            result = previousNum % currentNum;
+            savedValue.textContent = previousNum + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            currentNum = '';
+            entryValue.textContent = currentNum;
+            opValue = '';
+        }
+    } else {
+        if(opValue == 'x') {
+            previousResult = result;
+            result = result * currentNum;
+            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            currentNum = '';
+            entryValue.textContent = currentNum;
+            opValue = '';
+            result == 0;
+        } else if (opValue == '+') {
+            previousResult = result;
+            result = result + currentNum;
+            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            currentNum = '';
+            entryValue.textContent = currentNum;
+            opValue = '';
+            result == 0;
+        } else if (opValue == '-') {
+            previousResult = result;
+            result = result - currentNum;
+            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            currentNum = '';
+            entryValue.textContent = currentNum;
+            opValue = '';
+            result == 0;
+        } else if (opValue == '/') {
+            previousResult = result;
+            result = result / currentNum;
+            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            currentNum = '';
+            entryValue.textContent = currentNum;
+            opValue = '';
+            result == 0;
+        }else if (opValue == '%') {
+            previousResult = result;
+            result = result % currentNum;
+            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            currentNum = '';
+            entryValue.textContent = currentNum;
+            opValue = '';
+            result == 0;
+        }
     }
 }
