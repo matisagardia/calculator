@@ -1,4 +1,5 @@
 //Variable declarations
+
 let currentNum = "";
 let previousNum = "";
 let operator = "";
@@ -19,7 +20,7 @@ const erase = document.querySelector(".erase");
 const dot = document.querySelector(".dot");
 
 
-//Eventlisteners for number clicks. forEach because querySelectorAll returns an array. pushNumber is a function that stores is currentNum the number that I click on the html and then
+//Event listeners for number clicks. forEach because querySelectorAll returns an array. pushNumber is a function that stores is currentNum the number that I click on the html and then
 //sets on the entryValue field that number.
 
 
@@ -36,7 +37,7 @@ function pushNumber(number) {
 }
 }
 
-//Eventlisteners for operator clicks.
+//Event listeners for operator clicks. When an operator is clicked, it is added to the string but also the entryValue screen is erased and the value is moved to the savedValue.
 
 operators.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -45,8 +46,24 @@ operators.forEach(btn => {
 })
 
 function pushOperator(operat) {
-    if(currentNum.length < 12){
-        currentNum += operat;
+    if(currentNum.length < 12 && currentNum.length > 0){
+        currentNum += " " + operat;
+        previousNum = currentNum;
+        savedValue.textContent = previousNum;
+        currentNum = '';
         entryValue.textContent = currentNum;
     }
 }
+
+//Erasing a character
+
+erase.addEventListener('click', (e) => {
+    deleteNum();
+})
+
+function deleteNum() {
+    currentNum = currentNum.slice(0, currentNum.length - 1);
+    entryValue.textContent = currentNum;
+}
+
+//Clear screen
