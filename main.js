@@ -47,9 +47,9 @@ operators.forEach(btn => {
 
 function pushOperator(operat) {
     if(currentNum.length < 12 && currentNum.length > 0){
-        currentNum += " " + operat;
+        opValue = operat;
+        savedValue.textContent = currentNum + ' ' + opValue;
         previousNum = currentNum;
-        savedValue.textContent = previousNum;
         currentNum = '';
         entryValue.textContent = currentNum;
     }
@@ -67,3 +67,52 @@ function deleteNum() {
 }
 
 //Clear screen
+
+clear.addEventListener('click', (e) => {
+    clearScreen();
+})
+
+function clearScreen() {
+    currentNum = '';
+    previousNum = '';
+    entryValue.textContent = currentNum;
+    savedValue.textContent = previousNum;
+}
+
+//Operate
+
+equal.addEventListener('click', (e) => {
+    operate();
+})
+
+function operate() {
+    console.log(opValue);
+    currentNum = Number(currentNum);
+    previousNum = Number(previousNum);
+    if(opValue == 'x') {
+        previousNum = previousNum * currentNum;
+        savedValue.textContent = previousNum;
+        currentNum = '';
+        entryValue.textcontent = currentNum;
+    } else if (opValue == '+') {
+        previousNum = previousNum + currentNum;
+        savedValue.textContent = previousNum;
+        currentNum = '';
+        entryValue.textcontent = currentNum;
+    } else if (opValue == '-') {
+        previousNum = previousNum - currentNum;
+        savedValue.textContent = previousNum;
+        currentNum = '';
+        entryValue.textcontent = currentNum;
+    } else if (opValue == '/') {
+        previousNum = previousNum / currentNum;
+        savedValue.textContent = previousNum;
+        currentNum = '';
+        entryValue.textcontent = currentNum;
+    }else if (opValue == '%') {
+        previousNum = previousNum % currentNum;
+        savedValue.textContent = previousNum;
+        currentNum = '';
+        entryValue.textcontent = currentNum;
+    }
+}
