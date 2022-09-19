@@ -93,26 +93,26 @@ function operate() {
         previousNum = previousNum * currentNum;
         savedValue.textContent = previousNum;
         currentNum = '';
-        entryValue.textcontent = currentNum;
+        entryValue.textContent = currentNum;
     } else if (opValue == '+') {
         previousNum = previousNum + currentNum;
         savedValue.textContent = previousNum;
         currentNum = '';
-        entryValue.textcontent = currentNum;
+        entryValue.textContent = currentNum;
     } else if (opValue == '-') {
         previousNum = previousNum - currentNum;
         savedValue.textContent = previousNum;
         currentNum = '';
-        entryValue.textcontent = currentNum;
+        entryValue.textContent = currentNum;
     } else if (opValue == '/') {
         previousNum = previousNum / currentNum;
         savedValue.textContent = previousNum;
         currentNum = '';
-        entryValue.textcontent = currentNum;
+        entryValue.textContent = currentNum;
     }else if (opValue == '%') {
         previousNum = previousNum % currentNum;
         savedValue.textContent = previousNum;
         currentNum = '';
-        entryValue.textcontent = currentNum;
+        entryValue.textContent = currentNum;
     }
 }
