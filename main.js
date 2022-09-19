@@ -136,7 +136,7 @@ function operate() {
         if(opValue == 'x') {
             previousResult = result;
             result = result * currentNum;
-            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + Math.round(result * 100) / 100;
             currentNum = '';
             entryValue.textContent = currentNum;
             opValue = '';
@@ -144,7 +144,7 @@ function operate() {
         } else if (opValue == '+') {
             previousResult = result;
             result = result + currentNum;
-            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + Math.round(result * 100) / 100;
             currentNum = '';
             entryValue.textContent = currentNum;
             opValue = '';
@@ -152,7 +152,7 @@ function operate() {
         } else if (opValue == '-') {
             previousResult = result;
             result = result - currentNum;
-            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + Math.round(result * 100) / 100;
             currentNum = '';
             entryValue.textContent = currentNum;
             opValue = '';
@@ -160,15 +160,15 @@ function operate() {
         } else if (opValue == '/') {
             previousResult = result;
             result = result / currentNum;
-            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + Math.round(result * 100) / 100;
             currentNum = '';
             entryValue.textContent = currentNum;
             opValue = '';
             result == 0;
-        }else if (opValue == '%') {
+        } else if (opValue == '%') {
             previousResult = result;
             result = result % currentNum;
-            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + result;
+            savedValue.textContent = previousResult + ' ' + opValue + ' ' + currentNum + ' ' + '= ' + Math.round(result * 100) / 100;
             currentNum = '';
             entryValue.textContent = currentNum;
             opValue = '';
